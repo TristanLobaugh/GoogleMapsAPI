@@ -16,11 +16,11 @@ mapApp.controller("mapController", function($scope, $http){
 	  	var latLon = city.latLon.split(",");
 	  	var lat = latLon[0];
 	  	var lon = latLon[1];
-
 		var marker = new google.maps.Marker({
 		    position: new google.maps.LatLng(lat, lon),
 		    map: $scope.map,
-		    title: city.city
+		    title: city.city,
+		    animation: google.maps.Animation.DROP
 		});
 
 	    var contentString = '<div id="content">'+

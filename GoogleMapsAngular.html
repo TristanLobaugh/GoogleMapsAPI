@@ -9,7 +9,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLdAHQM8mVjiprNAXBi9DKRCobNr3nRMg"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLdAHQM8mVjiprNAXBi9DKRCobNr3nRMg&libraries=places&callback="></script>
       <script type="text/javascript" src="cities.js"></script>
       <script type="text/javascript" src="mapcontroller.js"></script>
 
@@ -31,7 +31,7 @@
       
       <div id="options" class="hidden">
         <div class="places-selected" ng-repeat="place in places">
-          <input class="check-box" type="checkbox" ng-model="item.checked">
+          <input class="check-box" type="checkbox" ng-click="placeChecked(place.place)" ng-model="item.checked">
           <button class="blue-three-button">{{place.placeLabel}}</button>
           <span ng-show="item.checked" ><strong>Selected </strong><img src="img/check.png"></span>
         </div>

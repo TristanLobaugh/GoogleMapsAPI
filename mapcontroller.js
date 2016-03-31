@@ -1,10 +1,9 @@
-
 var mapApp = angular.module("mapApp", []);
-
 mapApp.controller("mapController", function($scope, $http){
+	var checkedPlaces = "";
 	$scope.places = places;
-	console.log($scope.places);
 	$scope.markers = [];
+
 	$scope.map = new google.maps.Map(document.getElementById('map'), {
     zoom: 4,
     center: new google.maps.LatLng(40.0000, -98.0000)
@@ -50,11 +49,66 @@ mapApp.controller("mapController", function($scope, $http){
 	}
 
 	$scope.zoomClick = function(i){
+		var latLon = cities[i].latLon.split(',');
+	    var lat = latLon[0];
+	    var lon = latLon[1];
 		$scope.map.setZoom(12);
 		$scope.map.panTo({lat: $scope.markers[i].lat, lng: $scope.markers[i].lon});
 		$("#options").removeClass("hidden");
-		$("#map-panel").addClass("hidden");
 		$("#options").addClass("view-height");
+		$("#map-panel").addClass("hidden");
+		
+		var center = new google.maps.LatLng(lat, lon);
+        $scope.map = new google.maps.Map(document.getElementById('map'), {
+        center: center,
+        zoom: 13
+        });
+        for(i=0; i<cities.length; i++){
+        createMarker(cities[i]);
+        } 
+        
+    } 
+        
+    $scope.makePlaces = function(){
+        var center = $scope.map.getCenter();
+        $scope.map = new google.maps.Map(document.getElementById('map'), {
+        center: center,
+        zoom: 13
+        });
+        for(i=0; i<cities.length; i++){
+        createMarker(cities[i]);
+        } 
+
+
+        var service = new google.maps.places.PlacesService($scope.map);
+        service.nearbySearch({
+          location: center,
+          radius: 50000,
+          type: "bank"
+        }, callback);
+          
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker2(results[i]);
+            
+          }
+        }
+      }
+     function createMarker2(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          position: placeLoc,
+          map: $scope.map,
+          title: place.city,
+          animation: google.maps.Animation.DROP
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open($scope.map, this);
+        });
+      }
+
 	}
 		dirClick = function(lat, lon){
 		$("#map-panel").addClass("hidden");
@@ -85,5 +139,13 @@ mapApp.controller("mapController", function($scope, $http){
 	for(var i = 0; i < cities.length; i++){
 		createMarker(cities[i]);
 	}
+
+	$scope.placeChecked = function(placeSent){
+		// checkedPlaces += placeSent + " ";
+		checkedPlaces = "bar, bank";
+		console.log(checkedPlaces);
+		$scope.makePlaces();
+	}
+
 });
 

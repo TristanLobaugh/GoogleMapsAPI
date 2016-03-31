@@ -65,3 +65,39 @@ img {
   font-size: 18px;
   margin: 5px 0;
 }
+
+/* line 53, ../compass/sass/style.scss */
+#options {
+  background-color: #e6e6e6;
+  overflow: auto;
+  width: 25%;
+  float: left;
+}
+/* line 58, ../compass/sass/style.scss */
+#options input {
+  margin-left: 30%;
+}
+/* line 61, ../compass/sass/style.scss */
+#options span {
+  font-size: 18px;
+  color: green;
+  margin: 2px 0 5px 0;
+}
+/* line 65, ../compass/sass/style.scss */
+#options span img {
+  width: 3.5%;
+  margin-bottom: 6px;
+}
+/* line 70, ../compass/sass/style.scss */
+#options .blue-three-button {
+  text-decoration: none;
+  background-color: #4099ff;
+  color: white;
+  border-radius: 5px;
+  width: 40%;
+  padding: 7px 10px;
+  border: 2px solid #3989e5;
+  text-shadow: 1px 1px black;
+  text-align: center;
+  margin-top: 5px;
+}

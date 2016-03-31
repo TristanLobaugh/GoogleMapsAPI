@@ -1,3 +1,51 @@
+var places = [];
+var arrayOfPlaces = [
+"Airport",
+"Amusement_park",
+"Atm",
+"Bank",
+"Bar",
+"Bus_station",
+"Cafe",
+"Cemetery",
+"Church",
+"City_hall",
+"Courthouse",
+"Department_store",
+"Embassy",
+"Fire_station",
+"Gas_station",
+"Grocery_or_supermarket",
+"Hospital",
+"Library",
+"Liquor_store",
+"Lodging",
+"Movie_theater",
+"Museum",
+"Night_club",
+"Park",
+"Parking",
+"Pharmacy",
+"Police",
+"Post_office",
+"Restaurant",
+"School",
+"Subway_station",
+"Srain_station",
+"University"
+];
+
+for(var i = 0; i < arrayOfPlaces.length; i++){
+    var placeObject = new Place(arrayOfPlaces[i])
+    places.push(placeObject);
+}
+
+
+function Place(place){
+    this.place = place.toLowerCase();
+    this.placeLabel = place.replace("_", " ");
+}
+
 function City(yearRank,city,state,yearEstimate,lastCensus,change,landArea,landAreaInKm,lastPopDensity,lastPopDensityInKM,latLon){
     // latLonArray = latLon.split(",");
     this.yearRank = yearRank;
@@ -53,6 +101,7 @@ cities.push(new City ("36","Long Beach","California","473,577","462,257","+2.45%
 cities.push(new City ("37","Kansas City","Missouri","470,800","459,787","+2.40%","315.0 sq mi","815.7 km2","1,460 per sq mi","564 km−2","39.1252,-94.5511"));
 cities.push(new City ("38","Mesa","Arizona","464,704","439,041","+5.85%","136.5 sq mi","353.4 km2","3,218 per sq mi","1,242 km−2","33.4019,-111.7174"));
 cities.push(new City ("39","Atlanta","Georgia","456,002","420,003","+8.57%","133.2 sq mi","344.9 km2","3,154 per sq mi","1,218 km−2","33.7629,-84.4227"));
+
 
 
       // This example displays a marker at the center of Australia.

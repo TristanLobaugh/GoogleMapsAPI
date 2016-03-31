@@ -2,7 +2,8 @@
 var mapApp = angular.module("mapApp", []);
 
 mapApp.controller("mapController", function($scope, $http){
-	
+	$scope.places = places;
+	console.log($scope.places);
 	$scope.markers = [];
 	$scope.map = new google.maps.Map(document.getElementById('map'), {
     zoom: 4,
@@ -51,11 +52,14 @@ mapApp.controller("mapController", function($scope, $http){
 	$scope.zoomClick = function(i){
 		$scope.map.setZoom(12);
 		$scope.map.panTo({lat: $scope.markers[i].lat, lng: $scope.markers[i].lon});
+		$("#options").removeClass("hidden");
+		$("#map-panel").addClass("hidden");
+		$("#options").addClass("view-height");
 	}
-
 		dirClick = function(lat, lon){
 		$("#map-panel").addClass("hidden");
 		$("#driving-directions").addClass("view-height");
+
 		var directionsService = new google.maps.DirectionsService();
 		var directionsDisplay = new google.maps.DirectionsRenderer();
 		var map = new google.maps.Map(document.getElementById('map'),{

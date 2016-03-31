@@ -28,6 +28,14 @@
       </div>
   
       <div id="driving-directions"></div>
-  
+      
+      <div id="options" class="hidden">
+        <div class="places-selected" ng-repeat="place in places">
+          <input class="check-box" type="checkbox" ng-model="item.checked">
+          <button class="blue-three-button">{{place.placeLabel}}</button>
+          <span ng-show="item.checked" ><strong>Selected </strong><img src="img/check.png"></span>
+        </div>
+      </div>
+
   </body>
 </html>

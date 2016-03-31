@@ -22,32 +22,10 @@
   border-radius: 5px;
   width: auto;
   padding: 7px 10px;
+  text-shadow: 1px 1px black;
 }
 
-/* line 23, ../compass/sass/style.scss */
-#driving-directions {
-  background-color: #e6e6e6;
-  overflow: auto;
-  width: 25%;
-  float: left;
-}
-
-/* line 29, ../compass/sass/style.scss */
-.hidden {
-  display: hidden;
-}
-
-/* line 32, ../compass/sass/style.scss */
-.view-height {
-  height: 100vh;
-}
-
-/* line 35, ../compass/sass/style.scss */
-img {
-  width: 5%;
-}
-
-/* line 38, ../compass/sass/style.scss */
+/* line 24, ../compass/sass/style.scss */
 .zoom-button {
   border: 2px solid #3989e5;
   text-decoration: none;
@@ -56,9 +34,33 @@ img {
   border-radius: 5px;
   width: auto;
   padding: 7px 10px;
+  text-shadow: 1px 1px black;
 }
 
-/* line 47, ../compass/sass/style.scss */
+/* line 34, ../compass/sass/style.scss */
+#driving-directions {
+  background-color: #e6e6e6;
+  overflow: auto;
+  width: 25%;
+  float: left;
+}
+
+/* line 40, ../compass/sass/style.scss */
+.hidden {
+  display: hidden;
+}
+
+/* line 43, ../compass/sass/style.scss */
+.view-height {
+  height: 100vh;
+}
+
+/* line 46, ../compass/sass/style.scss */
+img {
+  width: 5%;
+}
+
+/* line 49, ../compass/sass/style.scss */
 .city-name {
   font-size: 18px;
   margin: 5px 0;

@@ -1,6 +1,6 @@
 var mapApp = angular.module("mapApp", []);
 mapApp.controller("mapController", function($scope, $http){
-	var checkedPlaces = "";
+	var checkedPlaces = [];
 	$scope.places = places;
 	$scope.markers = [];
 
@@ -61,7 +61,7 @@ mapApp.controller("mapController", function($scope, $http){
 		var center = new google.maps.LatLng(lat, lon);
         $scope.map = new google.maps.Map(document.getElementById('map'), {
         center: center,
-        zoom: 13
+        zoom: 10
         });
         for(i=0; i<cities.length; i++){
         createMarker(cities[i]);
@@ -73,7 +73,7 @@ mapApp.controller("mapController", function($scope, $http){
         var center = $scope.map.getCenter();
         $scope.map = new google.maps.Map(document.getElementById('map'), {
         center: center,
-        zoom: 13
+        zoom: 10
         });
         for(i=0; i<cities.length; i++){
         createMarker(cities[i]);
@@ -83,8 +83,8 @@ mapApp.controller("mapController", function($scope, $http){
         var service = new google.maps.places.PlacesService($scope.map);
         service.nearbySearch({
           location: center,
-          radius: 50000,
-          type: "bank"
+          radius: 5000,
+          type: checkedPlaces
         }, callback);
           
       function callback(results, status) {
@@ -142,7 +142,7 @@ mapApp.controller("mapController", function($scope, $http){
 
 	$scope.placeChecked = function(placeSent){
 		// checkedPlaces += placeSent + " ";
-		checkedPlaces = "bar, bank";
+		checkedPlaces.push(placeSent);
 		console.log(checkedPlaces);
 		$scope.makePlaces();
 	}

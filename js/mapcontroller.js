@@ -1,4 +1,17 @@
-var mapApp = angular.module("mapApp", []);
+var mapApp = angular.module("mapApp", ["ngRoute", "ngAnimate"]);
+
+mapApp.config(function($routeProvider){
+	$routeProvider.when("/",{
+		templateUrl: "pages/map.html",
+		controller: "viewController"	
+	});
+	$routeProvider.when("/zoomed",{
+		templateUrl: "pages/zoomed.html",
+		controller: "viewController"	
+	});
+
+});
+
 mapApp.controller("mapController", function($scope, $http){
 	var checkedPlaces = [];
 	$scope.places = places;
